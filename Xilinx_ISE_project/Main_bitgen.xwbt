@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\GitHub_MyRep\Alinx_AX309_RTC_UART\Main.ncd
+OUTFILE=D:\GitHub_MyRep\Alinx_AX309_RTC_UART\Main.bit
+FAMILY=Spartan6
+PART=xc6slx9-2ftg256
+WORKINGDIR=D:\GitHub_MyRep\Alinx_AX309_RTC_UART
+LICENSE=WebPack
+USER_INFO=__0_0_0
