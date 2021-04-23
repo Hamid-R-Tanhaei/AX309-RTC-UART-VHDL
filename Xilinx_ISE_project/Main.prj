@@ -1,0 +1,5 @@
+vhdl work "ipcore_dir/DCM_CLOCK.vhd"
+vhdl work "UART.vhd"
+vhdl work "seven_segment.vhd"
+vhdl work "RTC_driver.vhd"
+vhdl work "Main.vhd"

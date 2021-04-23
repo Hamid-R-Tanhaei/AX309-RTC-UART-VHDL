@@ -1,0 +1,2 @@
+vhdl work ../../DCM_CLOCK.vhd
+vhdl work ../example_design/DCM_CLOCK_exdes.vhd
