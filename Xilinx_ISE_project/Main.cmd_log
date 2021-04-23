@@ -1,6 +1,0 @@
-xst -intstyle ise -ifn "D:/Xilinx_FPGA/ALINX_RTC_UART_7SEGMENT/Main.xst" -ofn "D:/Xilinx_FPGA/ALINX_RTC_UART_7SEGMENT/Main.syr" 
-ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc UCF_Constraints.ucf -p xc6slx9-ftg256-2 Main.ngc Main.ngd  
-map -intstyle ise -p xc6slx9-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Main_map.ncd Main.ngd Main.pcf 
-par -w -intstyle ise -ol high -mt off Main_map.ncd Main.ncd Main.pcf 
-trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Main.twx Main.ncd -o Main.twr Main.pcf -ucf UCF_Constraints.ucf 
-bitgen -intstyle ise -f Main.ut Main.ncd 

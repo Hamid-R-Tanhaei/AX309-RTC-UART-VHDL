@@ -1,1 +1,0 @@
-impact -batch ProgSpiPROM.cmd
