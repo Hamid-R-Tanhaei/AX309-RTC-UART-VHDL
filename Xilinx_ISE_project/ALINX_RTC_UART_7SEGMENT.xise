@@ -17,9 +17,28 @@
   <files>
     <file xil_pn:name="Main.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
+    </file>
+    <file xil_pn:name="RTC_driver.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="2"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
+    </file>
+    <file xil_pn:name="seven_segment.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="3"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
+    </file>
+    <file xil_pn:name="UART.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="4"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
-    <file xil_pn:name="Pin_alloation.ucf" xil_pn:type="FILE_UCF">
+    <file xil_pn:name="UCF_Constraints.ucf" xil_pn:type="FILE_UCF">
+      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+    </file>
+    <file xil_pn:name="ipcore_dir/DCM_CLOCK.xco" xil_pn:type="FILE_COREGEN">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="80"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
+    </file>
+    <file xil_pn:name="ipcore_dir/DCM_CLOCK.xise" xil_pn:type="FILE_COREGENISE">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
   </files>
@@ -85,6 +104,7 @@
     <property xil_pn:name="Enable Cyclic Redundancy Checking (CRC) spartan6" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable Debugging of Serial Mode BitStream" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable External Master Clock spartan6" xil_pn:value="false" xil_pn:valueState="default"/>
+    <property xil_pn:name="Enable Hardware Co-Simulation" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable Internal Done Pipe" xil_pn:value="true" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Enable Message Filtering" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Enable Multi-Pin Wake-Up Suspend Mode spartan6" xil_pn:value="false" xil_pn:valueState="default"/>
@@ -290,7 +310,6 @@
     <property xil_pn:name="Starting Placer Cost Table (1-100) Map spartan6" xil_pn:value="1" xil_pn:valueState="default"/>
     <property xil_pn:name="Synthesis Tool" xil_pn:value="XST (VHDL/Verilog)" xil_pn:valueState="default"/>
     <property xil_pn:name="Target Simulator" xil_pn:value="Please Specify" xil_pn:valueState="default"/>
-    <property xil_pn:name="Target UCF File Name" xil_pn:value="Pin_alloation.ucf" xil_pn:valueState="non-default"/>
     <property xil_pn:name="Timing Mode Map" xil_pn:value="Performance Evaluation" xil_pn:valueState="default"/>
     <property xil_pn:name="Timing Mode Par" xil_pn:value="Performance Evaluation" xil_pn:valueState="default"/>
     <property xil_pn:name="Top-Level Module Name in Output Netlist" xil_pn:value="" xil_pn:valueState="default"/>
@@ -319,9 +338,10 @@
     <property xil_pn:name="Use Synchronous Reset" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synchronous Set" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synthesis Constraints File" xil_pn:value="true" xil_pn:valueState="default"/>
+    <property xil_pn:name="User Browsed Strategy Files" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="UserID Code (8 Digit Hexadecimal)" xil_pn:value="0xFFFFFFFF" xil_pn:valueState="default"/>
     <property xil_pn:name="VCCAUX Voltage Level spartan6" xil_pn:value="2.5V" xil_pn:valueState="default"/>
-    <property xil_pn:name="VHDL Source Analysis Standard" xil_pn:value="VHDL-200X" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="VHDL Source Analysis Standard" xil_pn:value="VHDL-93" xil_pn:valueState="default"/>
     <property xil_pn:name="Value Range Check" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Verilog Macros" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="Wait for DCM and PLL Lock (Output Events) spartan6" xil_pn:value="Default (NoWait)" xil_pn:valueState="default"/>
@@ -333,7 +353,7 @@
     <!-- The following properties are for internal use only. These should not be modified.-->
     <!--                                                                                  -->
     <property xil_pn:name="PROP_BehavioralSimTop" xil_pn:value="" xil_pn:valueState="default"/>
-    <property xil_pn:name="PROP_DesignName" xil_pn:value="Alinx_AX309_RTC_UART" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_DesignName" xil_pn:value="ALINX_RTC_UART_7SEGMENT" xil_pn:valueState="non-default"/>
     <property xil_pn:name="PROP_DevFamilyPMName" xil_pn:value="spartan6" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_FPGAConfiguration" xil_pn:value="FPGAConfiguration" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_PostMapSimTop" xil_pn:value="" xil_pn:valueState="default"/>
@@ -341,8 +361,8 @@
     <property xil_pn:name="PROP_PostSynthSimTop" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_PostXlateSimTop" xil_pn:value="" xil_pn:valueState="default"/>
     <property xil_pn:name="PROP_PreSynthesis" xil_pn:value="PreSynthesis" xil_pn:valueState="default"/>
-    <property xil_pn:name="PROP_intProjectCreationTimestamp" xil_pn:value="2020-05-31T01:31:19" xil_pn:valueState="non-default"/>
-    <property xil_pn:name="PROP_intWbtProjectID" xil_pn:value="0CF29346003A44B8819BF8A2C85D8888" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_intProjectCreationTimestamp" xil_pn:value="2020-12-06T16:28:48" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="PROP_intWbtProjectID" xil_pn:value="7223204668904240A31D1C1F8172CF6B" xil_pn:valueState="non-default"/>
     <property xil_pn:name="PROP_intWorkingDirLocWRTProjDir" xil_pn:value="Same" xil_pn:valueState="non-default"/>
     <property xil_pn:name="PROP_intWorkingDirUsed" xil_pn:value="No" xil_pn:valueState="non-default"/>
   </properties>

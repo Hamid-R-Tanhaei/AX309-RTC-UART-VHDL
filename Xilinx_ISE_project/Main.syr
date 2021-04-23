@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.45 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.46 secs
  
 --> Reading design: Main.prj
 
@@ -99,16 +99,29 @@ DSP48 Utilization Ratio            : 100
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
 =========================================================================
 
 
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "D:\GitHub_MyRep\Alinx_AX309_RTC_UART\Main.vhd" into library work
+Parsing VHDL file "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\ipcore_dir\DCM_CLOCK.vhd" into library work
+Parsing entity <DCM_CLOCK>.
+Parsing architecture <xilinx> of entity <dcm_clock>.
+Parsing VHDL file "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\UART.vhd" into library work
+Parsing entity <UART>.
+Parsing architecture <Behavioral> of entity <uart>.
+Parsing VHDL file "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\seven_segment.vhd" into library work
+Parsing entity <Seven_segment>.
+Parsing architecture <Behavioral> of entity <seven_segment>.
+Parsing VHDL file "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\RTC_driver.vhd" into library work
+Parsing entity <RTC_driver>.
+Parsing architecture <Behavioral> of entity <rtc_driver>.
+Parsing VHDL file "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\Main.vhd" into library work
 Parsing entity <Main>.
-INFO:HDLCompiler:1676 - "D:\GitHub_MyRep\Alinx_AX309_RTC_UART\Main.vhd" Line 41. declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output
-INFO:HDLCompiler:1676 - "D:\GitHub_MyRep\Alinx_AX309_RTC_UART\Main.vhd" Line 44. declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output
 Parsing architecture <Behavioral> of entity <main>.
 
 =========================================================================
@@ -117,89 +130,104 @@ Parsing architecture <Behavioral> of entity <main>.
 
 Elaborating entity <Main> (architecture <Behavioral>) from library <work>.
 
+Elaborating entity <DCM_CLOCK> (architecture <xilinx>) from library <work>.
+
+Elaborating entity <UART> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <Seven_segment> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <RTC_driver> (architecture <Behavioral>) from library <work>.
+
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <Main>.
-    Related source file is "D:\GitHub_MyRep\Alinx_AX309_RTC_UART\Main.vhd".
-    Found 17-bit register for signal <temp2>.
-    Found 9-bit register for signal <temp3>.
-    Found 10-bit register for signal <uart_br>.
-    Found 1-bit register for signal <RTC_we>.
-    Found 1-bit register for signal <RTC_clk>.
-    Found 1-bit register for signal <RTC_En>.
-    Found 28-bit register for signal <uart_timeout>.
-    Found 1-bit register for signal <uart_tx_en>.
-    Found 4-bit register for signal <uart_bit_cntr>.
-    Found 6-bit register for signal <uart_byte_cntr>.
+    Related source file is "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\Main.vhd".
+INFO:Xst:3210 - "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\Main.vhd" line 47: Output port <CLK_50M> of the instance <DCM_inst> is unconnected or connected to loadless signal.
+    Found 1-bit tristate buffer for signal <RTC_io> created at line 97
+    Summary:
+	inferred   1 Tristate(s).
+Unit <Main> synthesized.
+
+Synthesizing Unit <DCM_CLOCK>.
+    Related source file is "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\ipcore_dir\DCM_CLOCK.vhd".
+    Summary:
+	no macro.
+Unit <DCM_CLOCK> synthesized.
+
+Synthesizing Unit <UART>.
+    Related source file is "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\UART.vhd".
+    Found 18-bit register for signal <time_interval>.
+    Found 1-bit register for signal <tx_en>.
+    Found 4-bit register for signal <bit_cntr>.
+    Found 4-bit register for signal <byte_cntr>.
     Found 1-bit register for signal <TXD>.
-    Found 8-bit register for signal <UART_TX_Buff>.
-    Found 6-bit register for signal <sweeper>.
-    Found 6-bit register for signal <Selected_digit>.
-    Found 4-bit register for signal <bcd_S1>.
-    Found 4-bit register for signal <bcd_S2>.
-    Found 4-bit register for signal <bcd_M1>.
-    Found 4-bit register for signal <bcd_M2>.
-    Found 4-bit register for signal <bcd_H1>.
-    Found 4-bit register for signal <bcd_H2>.
+    Found 10-bit register for signal <UART_TX_Buffer>.
+    Found 6-bit register for signal <uart_br>.
+    Found 6-bit adder for signal <uart_br[5]_GND_10_o_add_0_OUT> created at line 52.
+    Found 18-bit adder for signal <time_interval[17]_GND_10_o_add_2_OUT> created at line 55.
+    Found 4-bit adder for signal <bit_cntr[3]_GND_10_o_add_12_OUT> created at line 67.
+    Found 4-bit adder for signal <byte_cntr[3]_GND_10_o_add_15_OUT> created at line 84.
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred  44 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <UART> synthesized.
+
+Synthesizing Unit <Seven_segment>.
+    Related source file is "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\seven_segment.vhd".
+    Found 6-bit register for signal <Selected_digit_int>.
+    Found 14-bit register for signal <cntr>.
+    Found 14-bit adder for signal <cntr[13]_GND_11_o_add_1_OUT> created at line 48.
+    Found 16x7-bit Read Only RAM for signal <to_LED>
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+Unit <Seven_segment> synthesized.
+
+Synthesizing Unit <RTC_driver>.
+    Related source file is "D:\Xilinx_FPGA\ALINX_RTC_UART_7SEGMENT\RTC_driver.vhd".
+    Found 16-bit register for signal <RTC_cmd>.
+    Found 24-bit register for signal <RTC_dat>.
+    Found 1-bit register for signal <cntr_del>.
+    Found 21-bit register for signal <cntr>.
+    Found 1-bit register for signal <RtcEn_int>.
+    Found 1-bit register for signal <RtcWE>.
+    Found 1-bit register for signal <time_changed>.
+    Found 4-bit register for signal <bcd_sec1>.
+    Found 4-bit register for signal <bcd_sec2>.
+    Found 4-bit register for signal <bcd_min1>.
+    Found 4-bit register for signal <bcd_min2>.
     Found 4-bit register for signal <bcd_hour1>.
     Found 4-bit register for signal <bcd_hour2>.
     Found 8-bit register for signal <addr>.
     Found 8-bit register for signal <value>.
-    Found 1-bit register for signal <time_changed>.
-    Found 4-bit register for signal <bcd_min1>.
-    Found 4-bit register for signal <bcd_min2>.
-    Found 4-bit register for signal <bcd_sec1>.
-    Found 4-bit register for signal <bcd_sec2>.
-    Found 7-bit register for signal <byte_cntr>.
-    Found 8-bit register for signal <RTC_cmd>.
+    Found 4-bit register for signal <bcd_hour1_draft>.
+    Found 4-bit register for signal <bcd_hour2_draft>.
+    Found 21-bit register for signal <hour_chng_cntdown>.
+    Found 4-bit register for signal <bcd_min1_draft>.
+    Found 4-bit register for signal <bcd_min2_draft>.
+    Found 21-bit register for signal <min_chng_cntdown>.
     Found 1-bit register for signal <RTC_Dout>.
-    Found 8-bit register for signal <RTC_dat>.
-    Found 24-bit register for signal <temp1>.
-    Found 28-bit adder for signal <uart_timeout[27]_GND_5_o_add_21_OUT> created at line 135.
-    Found 10-bit adder for signal <uart_br[9]_GND_5_o_add_24_OUT> created at line 141.
-    Found 4-bit adder for signal <uart_bit_cntr[3]_GND_5_o_add_26_OUT> created at line 144.
-    Found 6-bit adder for signal <uart_byte_cntr[5]_GND_5_o_add_30_OUT> created at line 151.
-    Found 8-bit adder for signal <GND_5_o_GND_5_o_add_35_OUT> created at line 157.
-    Found 8-bit adder for signal <GND_5_o_GND_5_o_add_37_OUT> created at line 159.
-    Found 8-bit adder for signal <GND_5_o_GND_5_o_add_40_OUT> created at line 163.
-    Found 8-bit adder for signal <GND_5_o_GND_5_o_add_42_OUT> created at line 165.
-    Found 8-bit adder for signal <GND_5_o_GND_5_o_add_45_OUT> created at line 169.
-    Found 8-bit adder for signal <GND_5_o_GND_5_o_add_47_OUT> created at line 171.
-    Found 24-bit adder for signal <temp1[23]_GND_5_o_add_76_OUT> created at line 190.
-    Found 17-bit adder for signal <temp2[16]_GND_5_o_add_77_OUT> created at line 191.
-    Found 9-bit adder for signal <temp3[8]_GND_5_o_add_78_OUT> created at line 192.
-    Found 4-bit adder for signal <bcd_hour1[3]_GND_5_o_add_90_OUT> created at line 211.
-    Found 4-bit adder for signal <bcd_hour2[3]_GND_5_o_add_92_OUT> created at line 214.
-    Found 4-bit adder for signal <bcd_min1[3]_GND_5_o_add_103_OUT> created at line 226.
-    Found 4-bit adder for signal <bcd_min2[3]_GND_5_o_add_105_OUT> created at line 229.
-    Found 7-bit adder for signal <byte_cntr[6]_GND_5_o_add_130_OUT> created at line 258.
-    Found 7-bit adder for signal <byte_cntr[6]_GND_5_o_add_142_OUT> created at line 283.
-    Found 16x7-bit Read Only RAM for signal <to_LED>
-    Found 1-bit tristate buffer for signal <RTC_io> created at line 57
-    Found 28-bit comparator greater for signal <GND_5_o_uart_timeout[27]_LessThan_23_o> created at line 136
-    Found 10-bit comparator greater for signal <PWR_5_o_uart_br[9]_LessThan_26_o> created at line 142
-    Found 4-bit comparator greater for signal <PWR_5_o_uart_bit_cntr[3]_LessThan_28_o> created at line 145
-    Found 6-bit comparator lessequal for signal <n0029> created at line 147
-    Found 4-bit comparator greater for signal <GND_5_o_uart_bit_cntr[3]_LessThan_63_o> created at line 182
-    Found 4-bit comparator greater for signal <uart_bit_cntr[3]_PWR_5_o_LessThan_64_o> created at line 182
-    Found 17-bit comparator greater for signal <n0092> created at line 195
-    Found 24-bit comparator greater for signal <n0103> created at line 208
-    Found 4-bit comparator greater for signal <PWR_5_o_bcd_hour1[3]_LessThan_92_o> created at line 212
-    Found 4-bit comparator greater for signal <GND_5_o_bcd_hour1[3]_LessThan_97_o> created at line 216
-    Found 4-bit comparator greater for signal <PWR_5_o_bcd_min1[3]_LessThan_105_o> created at line 227
-    Found 4-bit comparator greater for signal <GND_5_o_bcd_min2[3]_LessThan_107_o> created at line 230
-    Found 7-bit comparator greater for signal <GND_5_o_byte_cntr[6]_LessThan_136_o> created at line 267
-    Found 7-bit comparator greater for signal <GND_5_o_byte_cntr[6]_LessThan_146_o> created at line 287
+    Found 21-bit adder for signal <cntr[20]_GND_13_o_add_8_OUT> created at line 1241.
+    Found 4-bit adder for signal <bcd_hour1[3]_GND_13_o_add_30_OUT> created at line 1241.
+    Found 4-bit adder for signal <bcd_hour2_draft[3]_GND_13_o_add_35_OUT> created at line 1241.
+    Found 4-bit adder for signal <bcd_min1[3]_GND_13_o_add_49_OUT> created at line 1241.
+    Found 4-bit adder for signal <bcd_min2_draft[3]_GND_13_o_add_54_OUT> created at line 1241.
+    Found 21-bit subtractor for signal <GND_13_o_GND_13_o_sub_47_OUT<20:0>> created at line 138.
+    Found 21-bit subtractor for signal <GND_13_o_GND_13_o_sub_65_OUT<20:0>> created at line 160.
+    Found 4-bit comparator greater for signal <PWR_11_o_bcd_hour1_draft[3]_LessThan_35_o> created at line 124
+    Found 4-bit comparator greater for signal <GND_13_o_bcd_hour1_draft[3]_LessThan_40_o> created at line 128
+    Found 4-bit comparator greater for signal <PWR_11_o_bcd_min1_draft[3]_LessThan_54_o> created at line 146
+    Found 4-bit comparator greater for signal <GND_13_o_bcd_min2_draft[3]_LessThan_58_o> created at line 150
     Summary:
-	inferred   1 RAM(s).
-	inferred  14 Adder/Subtractor(s).
-	inferred 212 D-type flip-flop(s).
-	inferred  14 Comparator(s).
-	inferred  77 Multiplexer(s).
-	inferred   1 Tristate(s).
-Unit <Main> synthesized.
+	inferred   7 Adder/Subtractor(s).
+	inferred 164 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred  15 Multiplexer(s).
+Unit <RTC_driver> synthesized.
 
 =========================================================================
 HDL Synthesis Report
@@ -207,59 +235,50 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  16x7-bit single-port Read Only RAM                    : 1
-# Adders/Subtractors                                   : 14
- 10-bit adder                                          : 1
- 17-bit adder                                          : 1
- 24-bit adder                                          : 1
- 28-bit adder                                          : 1
- 4-bit adder                                           : 5
+# Adders/Subtractors                                   : 12
+ 14-bit adder                                          : 1
+ 18-bit adder                                          : 1
+ 21-bit adder                                          : 1
+ 21-bit subtractor                                     : 2
+ 4-bit adder                                           : 6
  6-bit adder                                           : 1
- 7-bit adder                                           : 2
- 8-bit adder                                           : 1
- 9-bit adder                                           : 1
-# Registers                                            : 34
+# Registers                                            : 29
  1-bit register                                        : 7
  10-bit register                                       : 1
- 17-bit register                                       : 1
+ 14-bit register                                       : 1
+ 16-bit register                                       : 1
+ 18-bit register                                       : 1
+ 21-bit register                                       : 3
  24-bit register                                       : 1
- 28-bit register                                       : 1
- 4-bit register                                        : 13
- 6-bit register                                        : 3
- 7-bit register                                        : 1
- 8-bit register                                        : 5
- 9-bit register                                        : 1
-# Comparators                                          : 14
- 10-bit comparator greater                             : 1
- 17-bit comparator greater                             : 1
- 24-bit comparator greater                             : 1
- 28-bit comparator greater                             : 1
- 4-bit comparator greater                              : 7
- 6-bit comparator lessequal                            : 1
- 7-bit comparator greater                              : 2
-# Multiplexers                                         : 77
- 1-bit 2-to-1 multiplexer                              : 12
- 10-bit 2-to-1 multiplexer                             : 2
- 17-bit 2-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 20
- 6-bit 2-to-1 multiplexer                              : 2
- 7-bit 2-to-1 multiplexer                              : 4
- 8-bit 2-to-1 multiplexer                              : 32
- 9-bit 2-to-1 multiplexer                              : 3
+ 4-bit register                                        : 8
+ 6-bit register                                        : 2
+ 8-bit register                                        : 4
+# Comparators                                          : 4
+ 4-bit comparator greater                              : 4
+# Multiplexers                                         : 19
+ 1-bit 2-to-1 multiplexer                              : 4
+ 10-bit 2-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 2
+ 21-bit 2-to-1 multiplexer                             : 3
+ 4-bit 2-to-1 multiplexer                              : 7
+ 8-bit 2-to-1 multiplexer                              : 2
 # Tristates                                            : 1
  1-bit tristate buffer                                 : 1
 
 =========================================================================
-INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:2677 - Node <RTC_dat_0> of sequential type is unconnected in block <Main>.
 
-Synthesizing (advanced) Unit <Main>.
-The following registers are absorbed into counter <uart_timeout>: 1 register on signal <uart_timeout>.
+Synthesizing (advanced) Unit <RTC_driver>.
+The following registers are absorbed into counter <hour_chng_cntdown>: 1 register on signal <hour_chng_cntdown>.
+The following registers are absorbed into counter <min_chng_cntdown>: 1 register on signal <min_chng_cntdown>.
+Unit <RTC_driver> synthesized (advanced).
+
+Synthesizing (advanced) Unit <Seven_segment>.
+The following registers are absorbed into counter <cntr>: 1 register on signal <cntr>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_to_LED> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
@@ -271,8 +290,13 @@ INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_to_LED> will be implemented on LUTs 
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to signal <to_LED>        |          |
     -----------------------------------------------------------------------
-Unit <Main> synthesized (advanced).
-WARNING:Xst:2677 - Node <RTC_dat_0> of sequential type is unconnected in block <Main>.
+Unit <Seven_segment> synthesized (advanced).
+
+Synthesizing (advanced) Unit <UART>.
+The following registers are absorbed into counter <bit_cntr>: 1 register on signal <bit_cntr>.
+The following registers are absorbed into counter <uart_br>: 1 register on signal <uart_br>.
+The following registers are absorbed into counter <time_interval>: 1 register on signal <time_interval>.
+Unit <UART> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -280,80 +304,48 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  16x7-bit single-port distributed Read Only RAM        : 1
-# Adders/Subtractors                                   : 14
- 10-bit adder                                          : 1
- 17-bit adder                                          : 1
- 24-bit adder                                          : 1
- 28-bit adder                                          : 1
+# Adders/Subtractors                                   : 6
+ 21-bit adder                                          : 1
  4-bit adder                                           : 5
- 6-bit adder                                           : 1
- 7-bit adder                                           : 2
- 8-bit adder                                           : 1
- 9-bit adder                                           : 1
-# Counters                                             : 1
- 28-bit up counter                                     : 1
-# Registers                                            : 183
- Flip-Flops                                            : 183
-# Comparators                                          : 14
- 10-bit comparator greater                             : 1
- 17-bit comparator greater                             : 1
- 24-bit comparator greater                             : 1
- 28-bit comparator greater                             : 1
- 4-bit comparator greater                              : 7
- 6-bit comparator lessequal                            : 1
- 7-bit comparator greater                              : 2
-# Multiplexers                                         : 112
- 1-bit 2-to-1 multiplexer                              : 52
- 10-bit 2-to-1 multiplexer                             : 2
- 17-bit 2-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 20
- 6-bit 2-to-1 multiplexer                              : 2
- 7-bit 2-to-1 multiplexer                              : 4
- 8-bit 2-to-1 multiplexer                              : 27
- 9-bit 2-to-1 multiplexer                              : 3
+# Counters                                             : 6
+ 14-bit up counter                                     : 1
+ 18-bit up counter                                     : 1
+ 21-bit down counter                                   : 2
+ 4-bit up counter                                      : 1
+ 6-bit up counter                                      : 1
+# Registers                                            : 144
+ Flip-Flops                                            : 144
+# Comparators                                          : 4
+ 4-bit comparator greater                              : 4
+# Multiplexers                                         : 29
+ 1-bit 2-to-1 multiplexer                              : 20
+ 10-bit 2-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 2
+ 21-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 4
+ 8-bit 2-to-1 multiplexer                              : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <sweeper_5> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <Selected_digit_5> 
-INFO:Xst:2261 - The FF/Latch <sweeper_0> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <Selected_digit_0> 
-INFO:Xst:2261 - The FF/Latch <sweeper_1> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <Selected_digit_1> 
-INFO:Xst:2261 - The FF/Latch <sweeper_2> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <Selected_digit_2> 
-INFO:Xst:2261 - The FF/Latch <sweeper_3> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <Selected_digit_3> 
-INFO:Xst:2261 - The FF/Latch <sweeper_4> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <Selected_digit_4> 
-WARNING:Xst:1293 - FF/Latch <UART_TX_Buff_7> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch addr_7 hinder the constant cleaning in the block RTC_driver.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <addr_0> has a constant value of 0 in block <RTC_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <addr_3> has a constant value of 0 in block <RTC_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <addr_4> has a constant value of 0 in block <RTC_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <addr_5> has a constant value of 0 in block <RTC_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <addr_6> has a constant value of 0 in block <RTC_driver>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:1901 - Instance DCM_inst/pll_base_inst in unit DCM_inst/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
 
 Optimizing unit <Main> ...
-WARNING:Xst:1293 - FF/Latch <uart_byte_cntr_5> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_0> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_3> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_4> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_5> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_6> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bcd_min2_3> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bcd_M2_3> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_7> (without init value) has a constant value of 1 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <addr_0> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_3> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_4> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_5> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_6> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_7> (without init value) has a constant value of 1 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <uart_byte_cntr_4> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <uart_byte_cntr_5> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bcd_min2_3> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <bcd_M2_3> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <uart_byte_cntr_4> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <UART_TX_Buff_6> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <uart_timeout_27> has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <temp2_0> in Unit <Main> is equivalent to the following 2 FFs/Latches, which will be removed : <temp1_0> <temp3_0> 
-INFO:Xst:2261 - The FF/Latch <temp2_1> in Unit <Main> is equivalent to the following 2 FFs/Latches, which will be removed : <temp1_1> <temp3_1> 
-INFO:Xst:2261 - The FF/Latch <temp2_2> in Unit <Main> is equivalent to the following 2 FFs/Latches, which will be removed : <temp1_2> <temp3_2> 
-INFO:Xst:2261 - The FF/Latch <temp2_3> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <temp1_3> 
-INFO:Xst:2261 - The FF/Latch <temp2_4> in Unit <Main> is equivalent to the following FF/Latch, which will be removed : <temp1_4> 
+
+Optimizing unit <RTC_driver> ...
+
+Optimizing unit <UART> ...
+
+Optimizing unit <Seven_segment> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -365,8 +357,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 184
- Flip-Flops                                            : 184
+# Registers                                            : 223
+ Flip-Flops                                            : 223
 
 =========================================================================
 
@@ -389,29 +381,33 @@ Top Level Output File Name         : Main.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 663
+# BELS                             : 531
 #      GND                         : 1
-#      INV                         : 3
+#      INV                         : 45
 #      LUT1                        : 52
-#      LUT2                        : 66
-#      LUT3                        : 17
-#      LUT4                        : 55
-#      LUT5                        : 65
-#      LUT6                        : 207
-#      MUXCY                       : 97
-#      MUXF7                       : 8
+#      LUT2                        : 9
+#      LUT3                        : 21
+#      LUT4                        : 75
+#      LUT5                        : 25
+#      LUT6                        : 115
+#      MUXCY                       : 90
+#      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 91
-# FlipFlops/Latches                : 184
-#      FD                          : 36
-#      FDE                         : 66
-#      FDR                         : 82
-# Clock Buffers                    : 1
-#      BUFGP                       : 1
+#      XORCY                       : 95
+# FlipFlops/Latches                : 223
+#      FD                          : 93
+#      FDE                         : 76
+#      FDR                         : 36
+#      FDRE                        : 18
+# Clock Buffers                    : 4
+#      BUFG                        : 4
 # IO Buffers                       : 22
-#      IBUF                        : 4
+#      IBUF                        : 3
+#      IBUFG                       : 1
 #      IOBUF                       : 1
 #      OBUF                        : 17
+# Others                           : 1
+#      PLL_ADV                     : 1
 
 Device utilization summary:
 ---------------------------
@@ -420,23 +416,24 @@ Selected Device : 6slx9ftg256-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             184  out of  11440     1%  
- Number of Slice LUTs:                  465  out of   5720     8%  
-    Number used as Logic:               465  out of   5720     8%  
+ Number of Slice Registers:             223  out of  11440     1%  
+ Number of Slice LUTs:                  342  out of   5720     5%  
+    Number used as Logic:               342  out of   5720     5%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    545
-   Number with an unused Flip Flop:     361  out of    545    66%  
-   Number with an unused LUT:            80  out of    545    14%  
-   Number of fully used LUT-FF pairs:   104  out of    545    19%  
-   Number of unique control sets:        16
+ Number of LUT Flip Flop pairs used:    380
+   Number with an unused Flip Flop:     157  out of    380    41%  
+   Number with an unused LUT:            38  out of    380    10%  
+   Number of fully used LUT-FF pairs:   185  out of    380    48%  
+   Number of unique control sets:        12
 
 IO Utilization: 
- Number of IOs:                          23
- Number of bonded IOBs:                  23  out of    186    12%  
+ Number of IOs:                          22
+ Number of bonded IOBs:                  22  out of    186    11%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
 
 ---------------------------
 Partition Resource Summary:
@@ -459,7 +456,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 184   |
+DCM_inst/pll_base_inst/CLKOUT2     | BUFG                   | 179   |
+DCM_inst/pll_base_inst/CLKOUT1     | BUFG                   | 44    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -470,9 +468,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 14.206ns (Maximum Frequency: 70.395MHz)
-   Minimum input arrival time before clock: 16.205ns
-   Maximum output required time after clock: 9.550ns
+   Minimum period: 5.812ns (Maximum Frequency: 172.058MHz)
+   Minimum input arrival time before clock: 5.262ns
+   Maximum output required time after clock: 8.677ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -480,128 +478,151 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 14.206ns (frequency: 70.395MHz)
-  Total number of paths / destination ports: 7471047 / 331
+Timing constraint: Default period analysis for Clock 'DCM_inst/pll_base_inst/CLKOUT2'
+  Clock period: 5.775ns (frequency: 173.160MHz)
+  Total number of paths / destination ports: 6579 / 273
 -------------------------------------------------------------------------
-Delay:               14.206ns (Levels of Logic = 18)
-  Source:            temp2_0 (FF)
-  Destination:       bcd_hour1_1 (FF)
-  Source Clock:      clk rising
-  Destination Clock: clk rising
+Delay:               5.775ns (Levels of Logic = 4)
+  Source:            Inst_RTC_driver/min_chng_cntdown_11 (FF)
+  Destination:       Inst_RTC_driver/value_7 (FF)
+  Source Clock:      DCM_inst/pll_base_inst/CLKOUT2 rising
+  Destination Clock: DCM_inst/pll_base_inst/CLKOUT2 rising
 
-  Data Path: temp2_0 to bcd_hour1_1
+  Data Path: Inst_RTC_driver/min_chng_cntdown_11 to Inst_RTC_driver/value_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             11   0.525   1.039  temp2_0 (temp2_0)
-     LUT2:I1->O            1   0.254   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_lut<0> (Madd_temp1[23]_GND_5_o_add_76_OUT_lut<0>)
-     MUXCY:S->O            1   0.215   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<0> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<1> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<2> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<3> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<4> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<5> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<6> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<6>)
-     XORCY:CI->O           2   0.206   0.954  Madd_temp1[23]_GND_5_o_add_76_OUT_xor<7> (temp1[23]_GND_5_o_add_76_OUT<7>)
-     LUT3:I0->O            1   0.235   0.682  n010324 (n010323)
-     LUT6:I5->O           15   0.254   1.155  n010325 (n010324)
-     LUT6:I5->O            4   0.254   1.234  GND_5_o_byte_cntr[6]_LessThan_136_o13 (GND_5_o_byte_cntr[6]_LessThan_136_o12)
-     LUT6:I1->O           18   0.254   1.235  GND_5_o_byte_cntr[6]_LessThan_136_o14 (GND_5_o_byte_cntr[6]_LessThan_136_o)
-     LUT6:I5->O            8   0.254   0.944  Mmux_temp3[8]_GND_5_o_mux_140_OUT71 (temp3[8]_GND_5_o_mux_140_OUT<6>)
-     LUT6:I5->O           18   0.254   1.235  GND_5_o_time_changed_AND_16_o1 (GND_5_o_time_changed_AND_16_o1)
-     LUT6:I5->O           10   0.254   1.008  Mmux_byte_cntr[6]_byte_cntr[6]_mux_146_OUT71 (byte_cntr[6]_byte_cntr[6]_mux_146_OUT<6>)
-     LUT5:I4->O           11   0.254   1.039  GND_5_o_byte_cntr[6]_equal_150_o<6>1 (GND_5_o_byte_cntr[6]_equal_150_o<6>1)
-     LUT6:I5->O            1   0.254   0.000  Mmux_RTC_cmd[7]_GND_5_o_mux_160_OUT1151 (bcd_min2[3]_bcd_min2[3]_mux_165_OUT<2>)
-     FDE:D                     0.074          bcd_min2_2
+     FD:C->Q               3   0.525   1.221  Inst_RTC_driver/min_chng_cntdown_11 (Inst_RTC_driver/min_chng_cntdown_11)
+     LUT6:I0->O            5   0.254   1.069  Inst_RTC_driver/GND_13_o_min_chng_cntdown[20]_equal_49_o<20>12 (Inst_RTC_driver/GND_13_o_min_chng_cntdown[20]_equal_49_o<20>12)
+     LUT4:I1->O            5   0.235   0.841  Inst_RTC_driver/GND_13_o_min_chng_cntdown[20]_equal_49_o<20>14 (Inst_RTC_driver/GND_13_o_min_chng_cntdown[20]_equal_49_o<20>1)
+     LUT6:I5->O            8   0.254   1.052  Inst_RTC_driver/_n02511 (Inst_RTC_driver/_n0251)
+     LUT6:I4->O            1   0.250   0.000  Inst_RTC_driver/value_7_rstpot (Inst_RTC_driver/value_7_rstpot)
+     FD:D                      0.074          Inst_RTC_driver/value_7
     ----------------------------------------
-    Total                     14.206ns (3.680ns logic, 10.525ns route)
-                                       (25.9% logic, 74.1% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 7189469 / 228
--------------------------------------------------------------------------
-Offset:              16.205ns (Levels of Logic = 19)
-  Source:            reset (PAD)
-  Destination:       bcd_hour1_1 (FF)
-  Destination Clock: clk rising
-
-  Data Path: reset to bcd_hour1_1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O            90   1.328   2.239  reset_IBUF (reset_IBUF)
-     LUT2:I0->O            1   0.250   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_lut<0> (Madd_temp1[23]_GND_5_o_add_76_OUT_lut<0>)
-     MUXCY:S->O            1   0.215   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<0> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<1> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<2> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<3> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<4> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<5> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_temp1[23]_GND_5_o_add_76_OUT_cy<6> (Madd_temp1[23]_GND_5_o_add_76_OUT_cy<6>)
-     XORCY:CI->O           2   0.206   0.954  Madd_temp1[23]_GND_5_o_add_76_OUT_xor<7> (temp1[23]_GND_5_o_add_76_OUT<7>)
-     LUT3:I0->O            1   0.235   0.682  n010324 (n010323)
-     LUT6:I5->O           15   0.254   1.155  n010325 (n010324)
-     LUT6:I5->O            4   0.254   1.234  GND_5_o_byte_cntr[6]_LessThan_136_o13 (GND_5_o_byte_cntr[6]_LessThan_136_o12)
-     LUT6:I1->O           18   0.254   1.235  GND_5_o_byte_cntr[6]_LessThan_136_o14 (GND_5_o_byte_cntr[6]_LessThan_136_o)
-     LUT6:I5->O            8   0.254   0.944  Mmux_temp3[8]_GND_5_o_mux_140_OUT71 (temp3[8]_GND_5_o_mux_140_OUT<6>)
-     LUT6:I5->O           18   0.254   1.235  GND_5_o_time_changed_AND_16_o1 (GND_5_o_time_changed_AND_16_o1)
-     LUT6:I5->O           10   0.254   1.008  Mmux_byte_cntr[6]_byte_cntr[6]_mux_146_OUT71 (byte_cntr[6]_byte_cntr[6]_mux_146_OUT<6>)
-     LUT5:I4->O           11   0.254   1.039  GND_5_o_byte_cntr[6]_equal_150_o<6>1 (GND_5_o_byte_cntr[6]_equal_150_o<6>1)
-     LUT6:I5->O            1   0.254   0.000  Mmux_RTC_cmd[7]_GND_5_o_mux_160_OUT1151 (bcd_min2[3]_bcd_min2[3]_mux_165_OUT<2>)
-     FDE:D                     0.074          bcd_min2_2
-    ----------------------------------------
-    Total                     16.205ns (4.479ns logic, 11.725ns route)
+    Total                      5.775ns (1.592ns logic, 4.183ns route)
                                        (27.6% logic, 72.4% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 577 / 18
+Timing constraint: Default period analysis for Clock 'DCM_inst/pll_base_inst/CLKOUT1'
+  Clock period: 5.812ns (frequency: 172.058MHz)
+  Total number of paths / destination ports: 1381 / 97
 -------------------------------------------------------------------------
-Offset:              9.550ns (Levels of Logic = 5)
-  Source:            sweeper_5 (FF)
-  Destination:       to_LED<6> (PAD)
-  Source Clock:      clk rising
+Delay:               5.812ns (Levels of Logic = 4)
+  Source:            uart_handler/time_interval_8 (FF)
+  Destination:       uart_handler/bit_cntr_3 (FF)
+  Source Clock:      DCM_inst/pll_base_inst/CLKOUT1 rising
+  Destination Clock: DCM_inst/pll_base_inst/CLKOUT1 rising
 
-  Data Path: sweeper_5 to to_LED<6>
+  Data Path: uart_handler/time_interval_8 to uart_handler/bit_cntr_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             10   0.525   1.236  sweeper_5 (sweeper_5)
-     LUT3:I0->O            6   0.235   1.331  PWR_5_o_Selected_digit[5]_equal_10_o<5>11 (PWR_5_o_Selected_digit[5]_equal_10_o<5>1)
-     LUT6:I0->O            1   0.254   0.682  BCD_input<2>1 (BCD_input<2>1)
-     LUT6:I5->O            7   0.254   1.186  BCD_input<2>4 (BCD_input<2>)
-     LUT4:I0->O            1   0.254   0.681  Mram_to_LED51 (to_LED_5_OBUF)
-     OBUF:I->O                 2.912          to_LED_5_OBUF (to_LED<5>)
+     FDRE:C->Q             2   0.525   1.181  uart_handler/time_interval_8 (uart_handler/time_interval_8)
+     LUT6:I0->O            2   0.254   0.954  uart_handler/PWR_9_o_time_interval[17]_equal_4_o<17>1 (uart_handler/PWR_9_o_time_interval[17]_equal_4_o<17>)
+     LUT3:I0->O            1   0.235   0.682  uart_handler/PWR_9_o_time_interval[17]_equal_4_o<17>4 (uart_handler/PWR_9_o_time_interval[17]_equal_4_o)
+     LUT6:I5->O            8   0.254   1.399  uart_handler/_n0094 (uart_handler/_n0094)
+     LUT6:I0->O            1   0.254   0.000  uart_handler/bit_cntr_3_rstpot (uart_handler/bit_cntr_3_rstpot)
+     FD:D                      0.074          uart_handler/bit_cntr_3
     ----------------------------------------
-    Total                      9.550ns (4.434ns logic, 5.116ns route)
-                                       (46.4% logic, 53.6% route)
+    Total                      5.812ns (1.596ns logic, 4.216ns route)
+                                       (27.5% logic, 72.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'DCM_inst/pll_base_inst/CLKOUT2'
+  Total number of paths / destination ports: 72 / 71
+-------------------------------------------------------------------------
+Offset:              5.262ns (Levels of Logic = 4)
+  Source:            min_up (PAD)
+  Destination:       Inst_RTC_driver/min_chng_cntdown_20 (FF)
+  Destination Clock: DCM_inst/pll_base_inst/CLKOUT2 rising
+
+  Data Path: min_up to Inst_RTC_driver/min_chng_cntdown_20
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.328   0.834  min_up_IBUF (min_up_IBUF)
+     LUT2:I0->O            1   0.250   0.958  Inst_RTC_driver/GND_13_o_min_chng_cntdown[20]_equal_49_o<20>14_SW0 (N32)
+     LUT6:I2->O           21   0.254   1.310  Inst_RTC_driver/_n0302_inv1 (Inst_RTC_driver/_n0302_inv)
+     LUT4:I3->O            1   0.254   0.000  Inst_RTC_driver/min_chng_cntdown_20_rstpot (Inst_RTC_driver/min_chng_cntdown_20_rstpot)
+     FD:D                      0.074          Inst_RTC_driver/min_chng_cntdown_20
+    ----------------------------------------
+    Total                      5.262ns (2.160ns logic, 3.102ns route)
+                                       (41.0% logic, 59.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'DCM_inst/pll_base_inst/CLKOUT2'
+  Total number of paths / destination ports: 629 / 17
+-------------------------------------------------------------------------
+Offset:              8.677ns (Levels of Logic = 4)
+  Source:            sevent_seg/Selected_digit_int_2 (FF)
+  Destination:       to_LED<6> (PAD)
+  Source Clock:      DCM_inst/pll_base_inst/CLKOUT2 rising
+
+  Data Path: sevent_seg/Selected_digit_int_2 to to_LED<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             12   0.525   1.499  sevent_seg/Selected_digit_int_2 (sevent_seg/Selected_digit_int_2)
+     LUT5:I0->O            1   0.254   1.112  sevent_seg/BCD_input<3>4 (sevent_seg/BCD_input<3>4)
+     LUT6:I1->O            7   0.254   1.186  sevent_seg/BCD_input<3>6 (sevent_seg/BCD_input<3>)
+     LUT4:I0->O            1   0.254   0.681  sevent_seg/Mram_to_LED41 (to_LED_4_OBUF)
+     OBUF:I->O                 2.912          to_LED_4_OBUF (to_LED<4>)
+    ----------------------------------------
+    Total                      8.677ns (4.199ns logic, 4.478ns route)
+                                       (48.4% logic, 51.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'DCM_inst/pll_base_inst/CLKOUT1'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.118ns (Levels of Logic = 1)
+  Source:            uart_handler/TXD (FF)
+  Destination:       TXD (PAD)
+  Source Clock:      DCM_inst/pll_base_inst/CLKOUT1 rising
+
+  Data Path: uart_handler/TXD to TXD
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.525   0.681  uart_handler/TXD (uart_handler/TXD)
+     OBUF:I->O                 2.912          TXD_OBUF (TXD)
+    ----------------------------------------
+    Total                      4.118ns (3.437ns logic, 0.681ns route)
+                                       (83.5% logic, 16.5% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock clk
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |   14.206|         |         |         |
----------------+---------+---------+---------+---------+
+Clock to Setup on destination clock DCM_inst/pll_base_inst/CLKOUT1
+------------------------------+---------+---------+---------+---------+
+                              | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                  |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------+---------+---------+---------+---------+
+DCM_inst/pll_base_inst/CLKOUT1|    5.812|         |         |         |
+DCM_inst/pll_base_inst/CLKOUT2|    3.831|         |         |         |
+------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock DCM_inst/pll_base_inst/CLKOUT2
+------------------------------+---------+---------+---------+---------+
+                              | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                  |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------+---------+---------+---------+---------+
+DCM_inst/pll_base_inst/CLKOUT2|    5.775|         |         |         |
+------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.75 secs
+Total REAL time to Xst completion: 29.00 secs
+Total CPU time to Xst completion: 29.79 secs
  
 --> 
 
-Total memory usage is 4510624 kilobytes
+Total memory usage is 4633780 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   25 (   0 filtered)
-Number of infos    :   13 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

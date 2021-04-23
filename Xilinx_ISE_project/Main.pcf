@@ -1,13 +1,12 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sun May 31 01:44:22 2020
+// Written by: Map P.20131013 on Sat Apr 24 00:22:24 2021
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "RTC_clk" LOCATE = SITE "E13" LEVEL 1;
 COMP "TXD" LOCATE = SITE "D12" LEVEL 1;
 COMP "Dot" LOCATE = SITE "C6" LEVEL 1;
-COMP "clk" LOCATE = SITE "T8" LEVEL 1;
-COMP "RTC_En" LOCATE = SITE "C13" LEVEL 1;
-COMP "reset" LOCATE = SITE "L3" LEVEL 1;
+COMP "Clock" LOCATE = SITE "T8" LEVEL 1;
 COMP "hour_up" LOCATE = SITE "C3" LEVEL 1;
 COMP "sec_rst" LOCATE = SITE "E4" LEVEL 1;
 COMP "to_LED<0>" LOCATE = SITE "D5" LEVEL 1;
@@ -17,6 +16,7 @@ COMP "to_LED<3>" LOCATE = SITE "F7" LEVEL 1;
 COMP "to_LED<4>" LOCATE = SITE "C5" LEVEL 1;
 COMP "to_LED<5>" LOCATE = SITE "E6" LEVEL 1;
 COMP "to_LED<6>" LOCATE = SITE "C7" LEVEL 1;
+COMP "RTC_En" LOCATE = SITE "C13" LEVEL 1;
 COMP "RTC_io" LOCATE = SITE "D14" LEVEL 1;
 COMP "Selected_digit<0>" LOCATE = SITE "D8" LEVEL 1;
 COMP "Selected_digit<1>" LOCATE = SITE "E8" LEVEL 1;
@@ -25,55 +25,159 @@ COMP "Selected_digit<3>" LOCATE = SITE "F10" LEVEL 1;
 COMP "Selected_digit<4>" LOCATE = SITE "E10" LEVEL 1;
 COMP "Selected_digit<5>" LOCATE = SITE "D9" LEVEL 1;
 COMP "min_up" LOCATE = SITE "D3" LEVEL 1;
-COMP "RTC_clk" LOCATE = SITE "E13" LEVEL 1;
-TIMEGRP sys_clk_pin = BEL "uart_tx_en" BEL "temp2_0" BEL "temp2_1" BEL
-        "temp2_2" BEL "temp2_3" BEL "temp2_4" BEL "temp2_5" BEL "temp2_6" BEL
-        "temp2_7" BEL "temp2_8" BEL "temp2_9" BEL "temp2_10" BEL "temp2_11"
-        BEL "temp2_12" BEL "temp2_13" BEL "temp2_14" BEL "temp2_15" BEL
-        "temp2_16" BEL "temp1_5" BEL "temp1_6" BEL "temp1_7" BEL "temp1_8" BEL
-        "temp1_9" BEL "temp1_10" BEL "temp1_11" BEL "temp1_12" BEL "temp1_13"
-        BEL "temp1_14" BEL "temp1_15" BEL "temp1_16" BEL "temp1_17" BEL
-        "temp1_18" BEL "temp1_19" BEL "temp1_20" BEL "temp1_21" BEL "temp1_22"
-        BEL "temp1_23" BEL "uart_bit_cntr_0" BEL "uart_bit_cntr_1" BEL
-        "uart_bit_cntr_2" BEL "uart_bit_cntr_3" BEL "sweeper_0" BEL
-        "sweeper_1" BEL "sweeper_2" BEL "sweeper_3" BEL "sweeper_4" BEL
-        "sweeper_5" BEL "addr_1" BEL "addr_2" BEL "RTC_cmd_0" BEL "RTC_cmd_1"
-        BEL "RTC_cmd_2" BEL "RTC_cmd_3" BEL "RTC_cmd_4" BEL "RTC_cmd_5" BEL
-        "RTC_cmd_6" BEL "RTC_cmd_7" BEL "temp3_3" BEL "temp3_4" BEL "temp3_5"
-        BEL "temp3_6" BEL "temp3_7" BEL "temp3_8" BEL "uart_byte_cntr_0" BEL
-        "uart_byte_cntr_1" BEL "uart_byte_cntr_2" BEL "uart_byte_cntr_3" BEL
-        "uart_br_0" BEL "uart_br_1" BEL "uart_br_2" BEL "uart_br_3" BEL
-        "uart_br_4" BEL "uart_br_5" BEL "uart_br_6" BEL "uart_br_7" BEL
-        "uart_br_8" BEL "uart_br_9" BEL "RTC_Dout" BEL "time_changed" BEL
-        "RTC_dat_1" BEL "RTC_dat_2" BEL "RTC_dat_3" BEL "RTC_dat_4" BEL
-        "RTC_dat_5" BEL "RTC_dat_6" BEL "RTC_dat_7" BEL "bcd_hour1_0" BEL
-        "bcd_hour1_1" BEL "bcd_hour1_2" BEL "bcd_hour1_3" BEL "bcd_hour2_0"
-        BEL "bcd_hour2_1" BEL "bcd_hour2_2" BEL "bcd_hour2_3" BEL "bcd_min1_0"
-        BEL "bcd_min1_1" BEL "bcd_min1_2" BEL "bcd_min1_3" BEL "bcd_min2_0"
-        BEL "bcd_min2_1" BEL "bcd_min2_2" BEL "bcd_S1_0" BEL "bcd_S1_1" BEL
-        "bcd_S1_2" BEL "bcd_S1_3" BEL "bcd_S2_0" BEL "bcd_S2_1" BEL "bcd_S2_2"
-        BEL "bcd_S2_3" BEL "bcd_M1_0" BEL "bcd_M1_1" BEL "bcd_M1_2" BEL
-        "bcd_M1_3" BEL "bcd_H2_0" BEL "bcd_H2_1" BEL "bcd_H2_2" BEL "bcd_H2_3"
-        BEL "bcd_M2_0" BEL "bcd_M2_1" BEL "bcd_M2_2" BEL "bcd_H1_0" BEL
-        "bcd_H1_1" BEL "bcd_H1_2" BEL "bcd_H1_3" BEL "UART_TX_Buff_0" BEL
-        "UART_TX_Buff_1" BEL "UART_TX_Buff_2" BEL "UART_TX_Buff_3" BEL
-        "UART_TX_Buff_4" BEL "UART_TX_Buff_5" BEL "value_0" BEL "value_1" BEL
-        "value_2" BEL "value_3" BEL "value_4" BEL "value_5" BEL "value_6" BEL
-        "value_7" BEL "uart_timeout_0" BEL "uart_timeout_1" BEL
-        "uart_timeout_2" BEL "uart_timeout_3" BEL "uart_timeout_4" BEL
-        "uart_timeout_5" BEL "uart_timeout_6" BEL "uart_timeout_7" BEL
-        "uart_timeout_8" BEL "uart_timeout_9" BEL "uart_timeout_10" BEL
-        "uart_timeout_11" BEL "uart_timeout_12" BEL "uart_timeout_13" BEL
-        "uart_timeout_14" BEL "uart_timeout_15" BEL "uart_timeout_16" BEL
-        "uart_timeout_17" BEL "uart_timeout_18" BEL "uart_timeout_19" BEL
-        "uart_timeout_20" BEL "uart_timeout_21" BEL "uart_timeout_22" BEL
-        "uart_timeout_23" BEL "uart_timeout_24" BEL "uart_timeout_25" BEL
-        "uart_timeout_26" BEL "RTC_clk" BEL "TXD" BEL "byte_cntr_0" BEL
-        "RTC_En" BEL "byte_cntr_1" BEL "byte_cntr_2" BEL "byte_cntr_3" BEL
-        "byte_cntr_4" BEL "byte_cntr_5" BEL "byte_cntr_6" BEL "bcd_sec1_0" BEL
-        "bcd_sec1_1" BEL "bcd_sec1_2" BEL "bcd_sec1_3" BEL "bcd_sec2_0" BEL
-        "bcd_sec2_1" BEL "bcd_sec2_2" BEL "bcd_sec2_3" BEL "RTC_we" BEL
-        "clk_BUFGP/BUFG";
+TIMEGRP DCM_inst_clkout2 = BEL "DCM_inst/clkout3_buf" BEL
+        "Inst_RTC_driver/RTC_Dout" BEL "Inst_RTC_driver/RTC_cmd_14" BEL
+        "Inst_RTC_driver/RTC_cmd_13" BEL "Inst_RTC_driver/RTC_cmd_12" BEL
+        "Inst_RTC_driver/RTC_cmd_11" BEL "Inst_RTC_driver/RTC_cmd_10" BEL
+        "Inst_RTC_driver/RTC_cmd_9" BEL "Inst_RTC_driver/RTC_cmd_8" BEL
+        "Inst_RTC_driver/RTC_cmd_7" BEL "Inst_RTC_driver/RTC_cmd_2" BEL
+        "Inst_RTC_driver/RTC_cmd_1" BEL "Inst_RTC_driver/bcd_hour2_3" BEL
+        "Inst_RTC_driver/bcd_hour2_2" BEL "Inst_RTC_driver/bcd_hour2_1" BEL
+        "Inst_RTC_driver/bcd_hour2_0" BEL "Inst_RTC_driver/bcd_hour1_3" BEL
+        "Inst_RTC_driver/bcd_hour1_2" BEL "Inst_RTC_driver/bcd_hour1_1" BEL
+        "Inst_RTC_driver/bcd_hour1_0" BEL "Inst_RTC_driver/bcd_min2_3" BEL
+        "Inst_RTC_driver/bcd_min2_2" BEL "Inst_RTC_driver/bcd_min2_1" BEL
+        "Inst_RTC_driver/bcd_min2_0" BEL "Inst_RTC_driver/bcd_min1_3" BEL
+        "Inst_RTC_driver/bcd_min1_2" BEL "Inst_RTC_driver/bcd_min1_1" BEL
+        "Inst_RTC_driver/bcd_min1_0" BEL "Inst_RTC_driver/bcd_sec1_3" BEL
+        "Inst_RTC_driver/bcd_sec1_2" BEL "Inst_RTC_driver/bcd_sec1_1" BEL
+        "Inst_RTC_driver/bcd_sec1_0" BEL "Inst_RTC_driver/bcd_sec2_3" BEL
+        "Inst_RTC_driver/bcd_sec2_2" BEL "Inst_RTC_driver/bcd_sec2_1" BEL
+        "Inst_RTC_driver/bcd_sec2_0" BEL "Inst_RTC_driver/cntr_del" BEL
+        "Inst_RTC_driver/RTC_dat_23" BEL "Inst_RTC_driver/RTC_dat_22" BEL
+        "Inst_RTC_driver/RTC_dat_21" BEL "Inst_RTC_driver/RTC_dat_20" BEL
+        "Inst_RTC_driver/RTC_dat_19" BEL "Inst_RTC_driver/RTC_dat_18" BEL
+        "Inst_RTC_driver/RTC_dat_17" BEL "Inst_RTC_driver/RTC_dat_16" BEL
+        "Inst_RTC_driver/RTC_dat_15" BEL "Inst_RTC_driver/RTC_dat_14" BEL
+        "Inst_RTC_driver/RTC_dat_13" BEL "Inst_RTC_driver/RTC_dat_12" BEL
+        "Inst_RTC_driver/RTC_dat_11" BEL "Inst_RTC_driver/RTC_dat_10" BEL
+        "Inst_RTC_driver/RTC_dat_9" BEL "Inst_RTC_driver/RTC_dat_8" BEL
+        "Inst_RTC_driver/RTC_dat_7" BEL "Inst_RTC_driver/RTC_dat_6" BEL
+        "Inst_RTC_driver/RTC_dat_5" BEL "Inst_RTC_driver/RTC_dat_4" BEL
+        "Inst_RTC_driver/RTC_dat_3" BEL "Inst_RTC_driver/RTC_dat_2" BEL
+        "Inst_RTC_driver/RTC_dat_1" BEL "Inst_RTC_driver/RTC_dat_0" BEL
+        "Inst_RTC_driver/cntr_20" BEL "Inst_RTC_driver/cntr_19" BEL
+        "Inst_RTC_driver/cntr_18" BEL "Inst_RTC_driver/cntr_17" BEL
+        "Inst_RTC_driver/cntr_16" BEL "Inst_RTC_driver/cntr_15" BEL
+        "Inst_RTC_driver/cntr_14" BEL "Inst_RTC_driver/cntr_13" BEL
+        "Inst_RTC_driver/cntr_12" BEL "Inst_RTC_driver/cntr_11" BEL
+        "Inst_RTC_driver/cntr_10" BEL "Inst_RTC_driver/cntr_9" BEL
+        "Inst_RTC_driver/cntr_8" BEL "Inst_RTC_driver/cntr_7" BEL
+        "Inst_RTC_driver/cntr_6" BEL "Inst_RTC_driver/cntr_5" BEL
+        "Inst_RTC_driver/cntr_4" BEL "Inst_RTC_driver/cntr_3" BEL
+        "Inst_RTC_driver/cntr_2" BEL "Inst_RTC_driver/cntr_1" BEL
+        "Inst_RTC_driver/cntr_0" BEL "sevent_seg/cntr_13" BEL
+        "sevent_seg/cntr_12" BEL "sevent_seg/cntr_11" BEL "sevent_seg/cntr_10"
+        BEL "sevent_seg/cntr_9" BEL "sevent_seg/cntr_8" BEL
+        "sevent_seg/cntr_7" BEL "sevent_seg/cntr_6" BEL "sevent_seg/cntr_5"
+        BEL "sevent_seg/cntr_4" BEL "sevent_seg/cntr_3" BEL
+        "sevent_seg/cntr_2" BEL "sevent_seg/cntr_1" BEL "sevent_seg/cntr_0"
+        BEL "sevent_seg/Selected_digit_int_5" BEL
+        "sevent_seg/Selected_digit_int_4" BEL
+        "sevent_seg/Selected_digit_int_3" BEL
+        "sevent_seg/Selected_digit_int_2" BEL
+        "sevent_seg/Selected_digit_int_1" BEL
+        "sevent_seg/Selected_digit_int_0" BEL "Inst_RTC_driver/RtcWE" BEL
+        "Inst_RTC_driver/RtcEn_int" BEL "Inst_RTC_driver/time_changed" BEL
+        "Inst_RTC_driver/min_chng_cntdown_20" BEL
+        "Inst_RTC_driver/min_chng_cntdown_19" BEL
+        "Inst_RTC_driver/min_chng_cntdown_18" BEL
+        "Inst_RTC_driver/min_chng_cntdown_17" BEL
+        "Inst_RTC_driver/min_chng_cntdown_16" BEL
+        "Inst_RTC_driver/min_chng_cntdown_15" BEL
+        "Inst_RTC_driver/min_chng_cntdown_14" BEL
+        "Inst_RTC_driver/min_chng_cntdown_13" BEL
+        "Inst_RTC_driver/min_chng_cntdown_12" BEL
+        "Inst_RTC_driver/min_chng_cntdown_11" BEL
+        "Inst_RTC_driver/min_chng_cntdown_10" BEL
+        "Inst_RTC_driver/min_chng_cntdown_9" BEL
+        "Inst_RTC_driver/min_chng_cntdown_8" BEL
+        "Inst_RTC_driver/min_chng_cntdown_7" BEL
+        "Inst_RTC_driver/min_chng_cntdown_6" BEL
+        "Inst_RTC_driver/min_chng_cntdown_5" BEL
+        "Inst_RTC_driver/min_chng_cntdown_4" BEL
+        "Inst_RTC_driver/min_chng_cntdown_3" BEL
+        "Inst_RTC_driver/min_chng_cntdown_2" BEL
+        "Inst_RTC_driver/min_chng_cntdown_1" BEL
+        "Inst_RTC_driver/min_chng_cntdown_0" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_20" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_19" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_18" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_17" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_16" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_15" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_14" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_13" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_12" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_11" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_10" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_9" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_8" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_7" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_6" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_5" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_4" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_3" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_2" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_1" BEL
+        "Inst_RTC_driver/hour_chng_cntdown_0" BEL "Inst_RTC_driver/RTC_cmd_15"
+        BEL "Inst_RTC_driver/RTC_cmd_6" BEL "Inst_RTC_driver/RTC_cmd_5" BEL
+        "Inst_RTC_driver/RTC_cmd_4" BEL "Inst_RTC_driver/RTC_cmd_3" BEL
+        "Inst_RTC_driver/RTC_cmd_0" BEL "Inst_RTC_driver/bcd_min1_draft_0" BEL
+        "Inst_RTC_driver/bcd_hour1_draft_0" BEL
+        "Inst_RTC_driver/bcd_min2_draft_1" BEL
+        "Inst_RTC_driver/bcd_min2_draft_0" BEL
+        "Inst_RTC_driver/bcd_min1_draft_2" BEL
+        "Inst_RTC_driver/bcd_min1_draft_1" BEL
+        "Inst_RTC_driver/bcd_hour2_draft_1" BEL
+        "Inst_RTC_driver/bcd_hour2_draft_0" BEL
+        "Inst_RTC_driver/bcd_hour1_draft_2" BEL
+        "Inst_RTC_driver/bcd_hour1_draft_1" BEL "Inst_RTC_driver/value_7" BEL
+        "Inst_RTC_driver/value_6" BEL "Inst_RTC_driver/value_5" BEL
+        "Inst_RTC_driver/value_4" BEL "Inst_RTC_driver/value_3" BEL
+        "Inst_RTC_driver/value_2" BEL "Inst_RTC_driver/value_1" BEL
+        "Inst_RTC_driver/value_0" BEL "Inst_RTC_driver/bcd_min2_draft_3" BEL
+        "Inst_RTC_driver/bcd_min2_draft_2" BEL
+        "Inst_RTC_driver/bcd_min1_draft_3" BEL
+        "Inst_RTC_driver/bcd_hour2_draft_3" BEL
+        "Inst_RTC_driver/bcd_hour2_draft_2" BEL
+        "Inst_RTC_driver/bcd_hour1_draft_3" BEL "Inst_RTC_driver/addr_7" BEL
+        "Inst_RTC_driver/addr_1" BEL "Inst_RTC_driver/addr_2";
+TIMEGRP DCM_inst_clkout1 = BEL "DCM_inst/clkout2_buf" BEL
+        "uart_handler/uart_br_5" BEL "uart_handler/uart_br_4" BEL
+        "uart_handler/uart_br_3" BEL "uart_handler/uart_br_2" BEL
+        "uart_handler/uart_br_1" BEL "uart_handler/uart_br_0" BEL
+        "uart_handler/time_interval_17" BEL "uart_handler/time_interval_16"
+        BEL "uart_handler/time_interval_15" BEL
+        "uart_handler/time_interval_14" BEL "uart_handler/time_interval_13"
+        BEL "uart_handler/time_interval_12" BEL
+        "uart_handler/time_interval_11" BEL "uart_handler/time_interval_10"
+        BEL "uart_handler/time_interval_9" BEL "uart_handler/time_interval_8"
+        BEL "uart_handler/time_interval_7" BEL "uart_handler/time_interval_6"
+        BEL "uart_handler/time_interval_5" BEL "uart_handler/time_interval_4"
+        BEL "uart_handler/time_interval_3" BEL "uart_handler/time_interval_2"
+        BEL "uart_handler/time_interval_1" BEL "uart_handler/time_interval_0"
+        BEL "uart_handler/TXD" BEL "uart_handler/UART_TX_Buffer_9" BEL
+        "uart_handler/UART_TX_Buffer_8" BEL "uart_handler/UART_TX_Buffer_7"
+        BEL "uart_handler/UART_TX_Buffer_6" BEL
+        "uart_handler/UART_TX_Buffer_5" BEL "uart_handler/UART_TX_Buffer_4"
+        BEL "uart_handler/UART_TX_Buffer_3" BEL
+        "uart_handler/UART_TX_Buffer_2" BEL "uart_handler/UART_TX_Buffer_1"
+        BEL "uart_handler/UART_TX_Buffer_0" BEL "uart_handler/tx_en" BEL
+        "uart_handler/byte_cntr_3" BEL "uart_handler/byte_cntr_2" BEL
+        "uart_handler/byte_cntr_1" BEL "uart_handler/byte_cntr_0" BEL
+        "uart_handler/bit_cntr_0" BEL "uart_handler/bit_cntr_1" BEL
+        "uart_handler/bit_cntr_2" BEL "uart_handler/bit_cntr_3";
+PIN SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0> = BEL
+        "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0" PINNAME DIVCLK;
+PIN DCM_inst/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "DCM_inst/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+TIMEGRP sys_clk_pin = PIN "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0>" PIN
+        "DCM_inst/pll_base_inst/PLL_ADV_pins<2>";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 50%;
+TS_DCM_inst_clkout1 = PERIOD TIMEGRP "DCM_inst_clkout1" TS_sys_clk_pin *
+        0.142857143 HIGH 50%;
+TS_DCM_inst_clkout2 = PERIOD TIMEGRP "DCM_inst_clkout2" TS_sys_clk_pin * 0.1
+        HIGH 50%;
 SCHEMATIC END;
 
